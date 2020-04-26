@@ -1,0 +1,167 @@
+# enable dump. modem will not reboot if dump
+[lester-optiplex7050 QLog]# busybox microcom /dev/ttyUSB3
+at+qdumpcfg=0,0
+OK
+
+# disable dump. modem will reboot immediately if dump
+[lester-optiplex7050 QLog]# busybox microcom /dev/ttyUSB3
+at+qdumpcfg=2,1
+OK
+
+# test dump, this AT will make modem come into dump.
+# use this for test
+at+qdbgcfg="system/abort"
+
+# Wait about 3 minutes, before catch dump log. It may take that much time for modem to save dump log.
+# Donot catch dump immediately!
+
+[lester-optiplex7050 QLog]# ./QLog -a -p /dev/ttyUSB1 -s xxx
+[000.000]QLog Version: Quectel_QLog_Linux&Android_V1.4
+[000.000]mannually set flag 'g_is_asr_chip'
+[000.111]open /dev/ttyUSB1 ttyfd = 3
+[000.112]qlog_get_vidpid_by_ttyport idVendor=2c7c, idProduct=6000, bNumInterfaces=1
+[000.112]Press CTRL+C to stop catch log.
+[000.112]catch dump for asr chipset
+[000.112]try to catch dump with YMODEM protocol(not standard)
+[000.112]Windows platfrom can use "Tera Term" to do this job
+[000.112]try to catch dump, it will take several minutes
+[000.112]
+[000.112]try to swicth work dir to xxx
+[000.261]
+[000.261]prepare to recv file 'com_DDR_RW.bin' with size of 30932992 bytes
+[030.692]status: 30932992/30932992
+[030.692]recv com_DDR_RW.bin finished
+[030.692]expect 30932992 bytes, actually get 30932992 bytes
+[030.702]
+[030.702]prepare to recv file 'com_errlog.bin' with size of 926 bytes
+[030.705]status: 926/926
+[030.706]recv com_errlog.bin finished
+[030.706]expect 926 bytes, actually get 926 bytes
+[030.856]
+[030.856]prepare to recv file 'com_EE_Hbuf.bin' with size of 780 bytes
+[030.859]status: 780/780
+[030.859]recv com_EE_Hbuf.bin finished
+[030.859]expect 780 bytes, actually get 780 bytes
+[031.158]
+[031.158]prepare to recv file 'COM_DTCM.BIN' with size of 32768 bytes
+[031.192]status: 32768/32768
+[031.192]recv COM_DTCM.BIN finished
+[031.192]expect 32768 bytes, actually get 32768 bytes
+[031.341]
+[031.341]prepare to recv file 'com_GBDump.bin' with size of 1048576 bytes
+[032.136]status: /[032.138]recv com_GBDump.bin finished
+[032.138]expect 1048576 bytes, actually get 786432 bytes
+[032.287]
+[032.287]prepare to recv file 'com_IPCDump.bin' with size of 10240 bytes
+[032.293]status: \[032.295]recv com_IPCDump.bin finished
+[032.295]expect 10240 bytes, actually get 4352 bytes
+[032.444]
+[032.444]prepare to recv file 'com_MipsRam.bin' with size of 16384 bytes
+[032.465]status: 16384/16384
+[032.465]recv com_MipsRam.bin finished
+[032.465]expect 16384 bytes, actually get 16384 bytes
+[032.615]
+[032.615]prepare to recv file 'com_rti_tsk.bin' with size of 2132 bytes
+[032.618]status: 2132/2132
+[032.618]recv com_rti_tsk.bin finished
+[032.618]expect 2132 bytes, actually get 2132 bytes
+[032.767]
+[032.767]prepare to recv file 'com_squ.bin' with size of 65536 bytes
+[032.822]status: 65536/65536
+[032.822]recv com_squ.bin finished
+[032.822]expect 65536 bytes, actually get 65536 bytes
+[032.971]
+[032.971]prepare to recv file 'com_L2_IML.bin' with size of 786432 bytes
+[033.798]status: 786432/786432
+[033.798]recv com_L2_IML.bin finished
+[033.798]expect 786432 bytes, actually get 786432 bytes
+[033.947]
+[033.947]prepare to recv file 'com_wdtKICK.bin' with size of 24 bytes
+[033.948]status: 24/24
+[033.948]recv com_wdtKICK.bin finished
+[033.948]expect 24 bytes, actually get 24 bytes
+[034.098]
+[034.098]prepare to recv file 'com_dvfmSpy.bin' with size of 160 bytes
+[034.099]status: 160/160
+[034.099]recv com_dvfmSpy.bin finished
+[034.099]expect 160 bytes, actually get 160 bytes
+[034.249]
+[034.249]prepare to recv file 'com_aplpSpy.bin' with size of 8184 bytes
+[034.257]status: 8184/8184
+[034.257]recv com_aplpSpy.bin finished
+[034.257]expect 8184 bytes, actually get 8184 bytes
+[034.407]
+[034.407]prepare to recv file 'com_GplcSpy.bin' with size of 4400 bytes
+[034.412]status: 4400/4400
+[034.412]recv com_GplcSpy.bin finished
+[034.412]expect 4400 bytes, actually get 4400 bytes
+[034.562]
+[034.562]prepare to recv file 'com_GtcuSpy.bin' with size of 1200 bytes
+[034.563]status: 1200/1200
+[034.564]recv com_GtcuSpy.bin finished
+[034.564]expect 1200 bytes, actually get 1200 bytes
+[034.713]
+[034.713]prepare to recv file 'com_dtcSpy.bin' with size of 1496 bytes
+[034.715]status: 1496/1496
+[034.715]recv com_dtcSpy.bin finished
+[034.715]expect 1496 bytes, actually get 1496 bytes
+[034.716]recv  finished
+[034.716]expect 0 bytes, actually get 0 bytes
+[034.865]
+[034.865]prepare to recv file 'com_RlgAddr.bin' with size of 4 bytes
+[034.866]status: 4/4
+[034.866]recv com_RlgAddr.bin finished
+[034.866]expect 4 bytes, actually get 4 bytes
+[035.016]
+[035.016]prepare to recv file 'com_L1aSpy.bin' with size of 6000 bytes
+[035.023]status: 6000/6000
+[035.023]recv com_L1aSpy.bin finished
+[035.023]expect 6000 bytes, actually get 6000 bytes
+[035.173]
+[035.173]prepare to recv file 'com_MipsEvt.bin' with size of 4089 bytes
+[035.180]status: 4089/4089
+[035.180]recv com_MipsEvt.bin finished
+[035.180]expect 4089 bytes, actually get 4089 bytes
+[035.329]
+[035.329]prepare to recv file 'PSM0.dump' with size of 131072 bytes
+[035.506]status: 131072/131072
+[035.506]recv PSM0.dump finished
+[035.506]expect 131072 bytes, actually get 131072 bytes
+[035.506]
+[035.506]prepare to recv file 'PSM1.dump' with size of 131072 bytes
+[035.677]status: 131072/131072
+[035.677]recv PSM1.dump finished
+[035.677]expect 131072 bytes, actually get 131072 bytes
+[035.678]
+[035.678]prepare to recv file 'PSM2.dump' with size of 131072 bytes
+[035.854]status: 131072/131072
+[035.855]recv PSM2.dump finished
+[035.855]expect 131072 bytes, actually get 131072 bytes
+[035.855]
+[035.855]prepare to recv file 'PSM3.dump' with size of 131072 bytes
+[036.033]status: 131072/131072
+[036.033]recv PSM3.dump finished
+[036.033]expect 131072 bytes, actually get 131072 bytes
+[036.033]
+[036.033]prepare to recv file 'PSM4.dump' with size of 131072 bytes
+[036.210]status: 131072/131072
+[036.210]recv PSM4.dump finished
+[036.210]expect 131072 bytes, actually get 131072 bytes
+[036.211]
+[036.211]prepare to recv file 'FileSystem.bin' with size of 50724864 bytes
+[109.555]status: 50724864/50724864
+[109.555]recv FileSystem.bin finished
+[109.555]expect 50724864 bytes, actually get 50724864 bytes
+[109.856]
+[109.856]prepare to recv file 'com_RAMLOG.bin' with size of 10485760 bytes
+[154.561]status: |[154.577]recv com_RAMLOG.bin finished
+[154.577]expect 10485760 bytes, actually get 831872 bytes
+[154.577]asr_catch_dump finish transfer
+[154.577]totally recv 84866387 bytes
+[154.577]asr_catch_dump returns with code 0
+[lester-optiplex7050 QLog]# 
+[lester-optiplex7050 QLog]# ls xxx
+com_aplpSpy.bin  com_dtcSpy.bin   com_errlog.bin   com_GtcuSpy.bin  com_L2_IML.bin   com_RAMLOG.bin   com_squ.bin      PSM0.dump  PSM3.dump
+com_DDR_RW.bin   com_dvfmSpy.bin  com_GBDump.bin   com_IPCDump.bin  com_MipsEvt.bin  com_RlgAddr.bin  com_wdtKICK.bin  PSM1.dump  PSM4.dump
+COM_DTCM.BIN     com_EE_Hbuf.bin  com_GplcSpy.bin  com_L1aSpy.bin   com_MipsRam.bin  com_rti_tsk.bin  FileSystem.bin   PSM2.dump
+[lester-optiplex7050 QLog]# 

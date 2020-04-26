@@ -1,0 +1,123 @@
+root@OpenWrt:/tmp# busybox microcom /dev/ttyUSB2
+at+qcfg="aprstlevel",0
+OK
+at+qcfg="modemrstlevel",0
+OK
+at+qcfg="dbgctl",0
+OK
+at+qtest="dump",1
+
+
+On Windows PC, run tftp32 (by Ph.jounin) as tftp server
+
+
+root@OpenWrt:/tmp# ./QLog -s tftp:192.168.1.212
+[000.000]QLog Version: Quectel_QLog_Linux&Android_V1.3.4
+[000.001]open /dev/ttyUSB0 ttyfd = 3
+[000.002]qlog_get_vidpid_by_ttyport idVendor=2c7c, idProduct=0125, bNumInterfaces=1
+[000.002]Press CTRL+C to stop catch log.
+[000.003]tftp_write_request filename=qlog_tftp_test_blksize, tsize=16383, blksize=16384
+[000.014]STATE <-- SAHARA_WAIT_HELLO
+[000.015]Read 8 bytes, command 1 and packet length 48 bytes
+[000.015]RECEIVED <--  SAHARA_HELLO_ID
+[000.015]RECEIVED <-- SAHARA_MODE_MEMORY_DEBUG
+[000.015]SENDING --> SAHARA_HELLO_RESPONSE
+[000.015]STATE <-- SAHARA_WAIT_COMMAND
+[000.015]Read 8 bytes, command 1 and packet length 48 bytes
+[000.015]RECEIVED <--  SAHARA_HELLO_ID
+[000.015]Received an unknown command: 1 
+[000.015]STATE <-- SAHARA_WAIT_COMMAND
+[000.015]Read 8 bytes, command 1 and packet length 48 bytes
+[000.015]RECEIVED <--  SAHARA_HELLO_ID
+[000.015]Received an unknown command: 1 
+[000.015]STATE <-- SAHARA_WAIT_COMMAND
+[000.015]Read 8 bytes, command 1 and packet length 48 bytes
+[000.015]RECEIVED <--  SAHARA_HELLO_ID
+[000.015]Received an unknown command: 1 
+[000.016]STATE <-- SAHARA_WAIT_COMMAND
+[000.016]Read 8 bytes, command 1 and packet length 48 bytes
+[000.016]RECEIVED <--  SAHARA_HELLO_ID
+[000.016]Received an unknown command: 1 
+[000.016]STATE <-- SAHARA_WAIT_COMMAND
+[000.016]Read 8 bytes, command 1 and packet length 48 bytes
+[000.016]RECEIVED <--  SAHARA_HELLO_ID
+[000.016]Received an unknown command: 1 
+[000.016]STATE <-- SAHARA_WAIT_COMMAND
+[000.016]Read 8 bytes, command 1 and packet length 48 bytes
+[000.016]RECEIVED <--  SAHARA_HELLO_ID
+[000.016]Received an unknown command: 1 
+[000.016]STATE <-- SAHARA_WAIT_COMMAND
+[000.019]Read 8 bytes, command 9 and packet length 16 bytes
+[000.019]RECEIVED <-- SAHARA_MEMORY_DEBUG_ID
+[000.019]RECEIVED <-- SAHARA_MEMORY_DEBUG
+[000.019]Memory Table Address: 0x87C91B20, Memory Table Length: 0x000001A0
+[000.019]SENDING -->  SAHARA_MEMORY_READ, address 0x87C91B20, length 0x000001A0
+[000.020]STATE <-- SAHARA_WAIT_MEMORY_TABLE
+[000.020]STATE <-- SAHARA_WAIT_MEMORY_TABLE
+[000.020]Memory Debug table received
+[000.020]Base 0x08600000 Len 0x00004000, 'OCIMEM.BIN', 'OCIMEM'
+[000.020]Base 0x00200000 Len 0x00020000, 'CODERAM.BIN', 'RPM Code RAM region'
+[000.020]Base 0x00290000 Len 0x00010000, 'DATARAM.BIN', 'RPM Data RAM region'
+[000.020]Base 0x00060000 Len 0x00005000, 'MSGRAM.BIN', 'RPM MSG RAM region'
+[000.020]Base 0x87C00338 Len 0x00000008, 'PMIC_PON.BIN', 'Pmic PON stat'
+[000.020]Base 0x87C00330 Len 0x00000004, 'RST_STAT.BIN', 'Reset Status Region'
+[000.020]Base 0x80000000 Len 0x10000000, 'DDRCS0.BIN', ' DDR CS0 Memory'
+[000.020]Base 0x87C91320 Len 0x0000025C, 'load.cmm', 'CMM Script'
+[000.020]STATE <-- SAHARA_WAIT_MEMORY_REGION
+[000.020]tftp_write_request filename=OCIMEM.BIN, tsize=16384, blksize=16384
+[000.028]SENDING -->  SAHARA_MEMORY_READ, address 0x08600000, length 0x00004000
+[000.037]Received file 'OCIMEM.BIN'
+[000.037]16384 bytes transferred in 0.009465 seconds (1.6508MBps)
+[000.038]tftp_write_request filename=CODERAM.BIN, tsize=131072, blksize=16384
+[000.044]SENDING -->  SAHARA_MEMORY_READ, address 0x00200000, length 0x00004000
+[000.095]Received file 'CODERAM.BIN'
+[000.095]131072 bytes transferred in 0.051478 seconds (2.4282MBps)
+[000.095]tftp_write_request filename=DATARAM.BIN, tsize=65536, blksize=16384
+[000.099]SENDING -->  SAHARA_MEMORY_READ, address 0x00290000, length 0x00004000
+[000.130]Received file 'DATARAM.BIN'
+[000.130]65536 bytes transferred in 0.031223 seconds (2.0017MBps)
+[000.130]tftp_write_request filename=MSGRAM.BIN, tsize=20480, blksize=16384
+[000.136]SENDING -->  SAHARA_MEMORY_READ, address 0x00060000, length 0x00004000
+[000.147]SENDING -->  SAHARA_MEMORY_READ, address 0x00064000, length 0x00001000
+[000.152]Received file 'MSGRAM.BIN'
+[000.152]20480 bytes transferred in 0.016598 seconds (1.1767MBps)
+[000.152]tftp_write_request filename=PMIC_PON.BIN, tsize=8, blksize=16384
+[000.155]SENDING -->  SAHARA_MEMORY_READ, address 0x87C00338, length 0x00000008
+[000.157]Received file 'PMIC_PON.BIN'
+[000.157]8 bytes transferred in 0.001911 seconds (0.0040MBps)
+[000.157]tftp_write_request filename=RST_STAT.BIN, tsize=4, blksize=16384
+[000.161]SENDING -->  SAHARA_MEMORY_READ, address 0x87C00330, length 0x00000004
+[000.163]Received file 'RST_STAT.BIN'
+[000.163]4 bytes transferred in 0.002090 seconds (0.0018MBps)
+[000.163]tftp_write_request filename=DDRCS0.BIN, tsize=268435456, blksize=16384
+[000.194]SENDING -->  SAHARA_MEMORY_READ, address 0x80000000, length 0x00004000
+[006.451]SENDING -->  SAHARA_MEMORY_READ, address 0x81000000, length 0x00004000
+[014.944]SENDING -->  SAHARA_MEMORY_READ, address 0x82000000, length 0x00004000
+[019.952]tftp_send_pkt wait ack timeout, block = 2663, ret=0, errno: 0 (No error information)
+[022.446]SENDING -->  SAHARA_MEMORY_READ, address 0x83000000, length 0x00004000
+[028.732]SENDING -->  SAHARA_MEMORY_READ, address 0x84000000, length 0x00004000
+[036.294]SENDING -->  SAHARA_MEMORY_READ, address 0x85000000, length 0x00004000
+[044.064]SENDING -->  SAHARA_MEMORY_READ, address 0x86000000, length 0x00004000
+[050.151]SENDING -->  SAHARA_MEMORY_READ, address 0x87000000, length 0x00004000
+[056.366]SENDING -->  SAHARA_MEMORY_READ, address 0x88000000, length 0x00004000
+[062.880]SENDING -->  SAHARA_MEMORY_READ, address 0x89000000, length 0x00004000
+[069.176]SENDING -->  SAHARA_MEMORY_READ, address 0x8A000000, length 0x00004000
+[076.656]SENDING -->  SAHARA_MEMORY_READ, address 0x8B000000, length 0x00004000
+[086.343]SENDING -->  SAHARA_MEMORY_READ, address 0x8C000000, length 0x00004000
+[095.745]SENDING -->  SAHARA_MEMORY_READ, address 0x8D000000, length 0x00004000
+[103.293]SENDING -->  SAHARA_MEMORY_READ, address 0x8E000000, length 0x00004000
+[113.326]SENDING -->  SAHARA_MEMORY_READ, address 0x8F000000, length 0x00004000
+[119.648]Received file 'DDRCS0.BIN'
+[119.648]268435456 bytes transferred in 119.454559 seconds (2.1431MBps)
+[119.648]tftp_write_request filename=load.cmm, tsize=604, blksize=16384
+[119.652]SENDING -->  SAHARA_MEMORY_READ, address 0x87C91320, length 0x0000025C
+[119.654]Received file 'load.cmm'
+[119.654]604 bytes transferred in 0.001942 seconds (0.2966MBps)
+[119.654]SENDING --> SAHARA_RESET
+[119.654]STATE <-- SAHARA_WAIT_RESET_RESP
+[119.654]Read 8 bytes, command 8 and packet length 8 bytes
+[119.654]RECEIVED <-- SAHARA_RESET_RESP_ID
+[119.892]Read/Write File descriptor returned error: No error information, error code 0
+[119.892]Get reset response code 8
+[119.892]Sahara protocol completed
+[119.892]Catch DUMP using Sahara protocol successful

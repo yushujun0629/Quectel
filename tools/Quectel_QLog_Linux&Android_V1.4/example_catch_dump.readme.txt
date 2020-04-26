@@ -1,0 +1,146 @@
+root@cqh6:~/qlog_new# busybox microcom /dev/ttyUSB2
+at+qcfg="aprstlevel",0
+OK
+at+qcfg="modemrstlevel",0
+OK
+at+qcfg="dbgctl",0
+OK
+at+qtest="dump",1
+
+
+root@cqh6:~/qlog_new# dmesg -c
+[615075.750253] usb 5-1.1: new high-speed USB device number 74 using xhci-hcd
+[615075.782143] usb 5-1.1: New USB device found, idVendor=2c7c, idProduct=0435
+[615075.782168] usb 5-1.1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[615075.782187] usb 5-1.1: Product: LTE Module
+[615075.782204] usb 5-1.1: Manufacturer: Quectel, Incorporated
+[615075.831173] option 5-1.1:1.0: GSM modem (1-port) converter detected
+[615075.832053] usb 5-1.1: GSM modem (1-port) converter now attached to ttyUSB0
+[615075.832899] option 5-1.1:1.1: GSM modem (1-port) converter detected
+[615075.833673] usb 5-1.1: GSM modem (1-port) converter now attached to ttyUSB1
+[615075.834563] option 5-1.1:1.2: GSM modem (1-port) converter detected
+[615075.835309] usb 5-1.1: GSM modem (1-port) converter now attached to ttyUSB2
+[615075.836192] option 5-1.1:1.3: GSM modem (1-port) converter detected
+[615075.836948] usb 5-1.1: GSM modem (1-port) converter now attached to ttyUSB3
+[615075.869482] qmi_wwan 5-1.1:1.4: cdc-wdm0: USB WDM device
+[615075.869512] qmi_wwan 5-1.1:1.4: Quectel EC21&EC25 work on RawIP mode
+[615075.872020] qmi_wwan 5-1.1:1.4 wwan0: register 'qmi_wwan' at usb-xhci-hcd.0.auto-1.1, WWAN/QMI device, ba:a1:00:2e:5e:95
+[615118.876173] option1 ttyUSB2: option_instat_callback: error -71
+[615118.972164] option1 ttyUSB2: option_instat_callback: error -71
+[615118.980180] usb 5-1.1: USB disconnect, device number 74
+[615118.980281] option1 ttyUSB2: usb_wwan_indat_callback: resubmit read urb failed. (-19)
+[615118.989125] option1 ttyUSB2: usb_wwan_indat_callback: resubmit read urb failed. (-19)
+[615118.998270] option1 ttyUSB2: usb_wwan_indat_callback: resubmit read urb failed. (-19)
+[615119.007248] option1 ttyUSB2: usb_wwan_indat_callback: resubmit read urb failed. (-19)
+[615119.018900] option1 ttyUSB0: GSM modem (1-port) converter now disconnected from ttyUSB0
+[615119.019127] option 5-1.1:1.0: device disconnected
+[615119.019630] option1 ttyUSB1: GSM modem (1-port) converter now disconnected from ttyUSB1
+[615119.019716] option 5-1.1:1.1: device disconnected
+[615119.021831] option1 ttyUSB2: GSM modem (1-port) converter now disconnected from ttyUSB2
+[615119.021933] option 5-1.1:1.2: device disconnected
+[615119.022408] option1 ttyUSB3: GSM modem (1-port) converter now disconnected from ttyUSB3
+[615119.026133] option 5-1.1:1.3: device disconnected
+[615119.027902] qmi_wwan 5-1.1:1.4 wwan0: unregister 'qmi_wwan' usb-xhci-hcd.0.auto-1.1, WWAN/QMI device
+[615119.470116] CPU Budget:update CPU 0 cpufreq max to 1488000 min to 480000
+[615119.470152] CPU Budget hotplug: cluster0 min:0 max:4
+[615119.730432] usb 5-1.1: new high-speed USB device number 75 using xhci-hcd
+[615119.750874] usb 5-1.1: New USB device found, idVendor=2c7c, idProduct=0435
+[615119.750898] usb 5-1.1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[615119.750916] usb 5-1.1: Product: QHSUSB__BULK
+[615119.750933] usb 5-1.1: Manufacturer: Qualcomm CDMA Technologies MSM
+[615119.781007] option 5-1.1:1.0: GSM modem (1-port) converter detected
+[615119.781877] usb 5-1.1: GSM modem (1-port) converter now attached to ttyUSB0
+
+root@cqh6:~/qlog_new# ./QLog -s dump
+[000.000]QLog Version: LTE_QLog_Linux&Android_V1.2.0
+[000.001]open /dev/ttyUSB0 ttyfd = 3
+[000.002]qlog_get_vidpid_by_ttyport idVendor=2c7c, idProduct=0435, bNumInterfaces= 1
+
+[000.003]Press CTRL+C to stop catch log.
+[000.003]STATE <-- SAHARA_WAIT_HELLO
+[000.003]Read 8 bytes, command 1 and packet length 48 bytes
+[000.003]RECEIVED <--  SAHARA_HELLO_ID
+[000.003]RECEIVED <-- SAHARA_MODE_MEMORY_DEBUG
+[000.003]SENDING --> SAHARA_HELLO_RESPONSE
+[000.003]STATE <-- SAHARA_WAIT_COMMAND
+[000.004]Read 8 bytes, command 9 and packet length 16 bytes
+[000.004]RECEIVED <-- SAHARA_MEMORY_DEBUG_ID
+[000.005]RECEIVED <-- SAHARA_MEMORY_DEBUG
+[000.005]Memory Table Address: 0x87C91B20, Memory Table Length: 0x000001A0
+[000.006]SENDING -->  SAHARA_MEMORY_READ, address 0x87C91B20, length 0x000001A0
+[000.006]STATE <-- SAHARA_WAIT_MEMORY_TABLE
+[000.007]STATE <-- SAHARA_WAIT_MEMORY_TABLE
+[000.007]Memory Debug table received
+[000.007]Base 0x08600000 Len 0x00004000, 'OCIMEM.BIN', 'OCIMEM'
+[000.007]Base 0x00200000 Len 0x00020000, 'CODERAM.BIN', 'RPM Code RAM region'
+[000.007]Base 0x00290000 Len 0x00010000, 'DATARAM.BIN', 'RPM Data RAM region'
+[000.007]Base 0x00060000 Len 0x00005000, 'MSGRAM.BIN', 'RPM MSG RAM region'
+[000.008]Base 0x87C00338 Len 0x00000008, 'PMIC_PON.BIN', 'Pmic PON stat'
+[000.008]Base 0x87C00330 Len 0x00000004, 'RST_STAT.BIN', 'Reset Status Region'
+[000.008]Base 0x80000000 Len 0x10000000, 'DDRCS0.BIN', ' DDR CS0 Memory'
+[000.008]Base 0x87C91320 Len 0x0000025C, 'load.cmm', 'CMM Script'
+[000.008]STATE <-- SAHARA_WAIT_MEMORY_REGION
+[000.008]SENDING -->  SAHARA_MEMORY_READ, address 0x08600000, length 0x00004000
+[000.010]Received file 'OCIMEM.BIN'
+[000.011]16384 bytes transferred in 0.002301 seconds (6.7905MBps)
+[000.011]SENDING -->  SAHARA_MEMORY_READ, address 0x00200000, length 0x00004000
+[000.020]Received file 'CODERAM.BIN'
+[000.021]131072 bytes transferred in 0.009399 seconds (13.2993MBps)
+[000.022]SENDING -->  SAHARA_MEMORY_READ, address 0x00290000, length 0x00004000
+[000.026]Received file 'DATARAM.BIN'
+[000.027]65536 bytes transferred in 0.005305 seconds (11.7813MBps)
+[000.028]SENDING -->  SAHARA_MEMORY_READ, address 0x00060000, length 0x00004000
+[000.031]SENDING -->  SAHARA_MEMORY_READ, address 0x00064000, length 0x00001000
+[000.032]Received file 'MSGRAM.BIN'
+[000.033]20480 bytes transferred in 0.005110 seconds (3.8222MBps)
+[000.033]SENDING -->  SAHARA_MEMORY_READ, address 0x87C00338, length 0x00000008
+[000.034]Received file 'PMIC_PON.BIN'
+[000.035]8 bytes transferred in 0.001418 seconds (0.0054MBps)
+[000.035]SENDING -->  SAHARA_MEMORY_READ, address 0x87C00330, length 0x00000004
+[000.036]Received file 'RST_STAT.BIN'
+[000.037]4 bytes transferred in 0.001464 seconds (0.0026MBps)
+[000.038]SENDING -->  SAHARA_MEMORY_READ, address 0x80000000, length 0x00004000
+[002.710]select returned error: No such file or directory
+[002.711]bytes_read = 16383, bytes_to_read = 16384
+[002.711]SENDING -->  SAHARA_MEMORY_READ, address 0x80820000, length 0x00004000
+[003.377]SENDING -->  SAHARA_MEMORY_READ, address 0x81000000, length 0x00004000
+[004.759]SENDING -->  SAHARA_MEMORY_READ, address 0x82000000, length 0x00004000
+[006.146]SENDING -->  SAHARA_MEMORY_READ, address 0x83000000, length 0x00004000
+[008.965]select returned error: No such file or directory
+[008.966]bytes_read = 16383, bytes_to_read = 16384
+[008.966]SENDING -->  SAHARA_MEMORY_READ, address 0x83990000, length 0x00004000
+[009.517]SENDING -->  SAHARA_MEMORY_READ, address 0x84000000, length 0x00004000
+[010.904]SENDING -->  SAHARA_MEMORY_READ, address 0x85000000, length 0x00004000
+[012.091]SENDING -->  SAHARA_MEMORY_READ, address 0x86000000, length 0x00004000
+[013.234]SENDING -->  SAHARA_MEMORY_READ, address 0x87000000, length 0x00004000
+[014.452]SENDING -->  SAHARA_MEMORY_READ, address 0x88000000, length 0x00004000
+[015.781]SENDING -->  SAHARA_MEMORY_READ, address 0x89000000, length 0x00004000
+[017.148]SENDING -->  SAHARA_MEMORY_READ, address 0x8A000000, length 0x00004000
+[018.532]SENDING -->  SAHARA_MEMORY_READ, address 0x8B000000, length 0x00004000
+[019.884]SENDING -->  SAHARA_MEMORY_READ, address 0x8C000000, length 0x00004000
+[021.213]SENDING -->  SAHARA_MEMORY_READ, address 0x8D000000, length 0x00004000
+[022.582]SENDING -->  SAHARA_MEMORY_READ, address 0x8E000000, length 0x00004000
+[024.032]SENDING -->  SAHARA_MEMORY_READ, address 0x8F000000, length 0x00004000
+[025.416]Received file 'DDRCS0.BIN'
+[025.416]268435456 bytes transferred in 25.378330 seconds (10.0873MBps)
+[025.416]SENDING -->  SAHARA_MEMORY_READ, address 0x87C91320, length 0x0000025C
+[025.417]Received file 'load.cmm'
+[025.417]604 bytes transferred in 0.000668 seconds (0.8623MBps)
+[025.417]SENDING --> SAHARA_RESET
+[025.417]STATE <-- SAHARA_WAIT_RESET_RESP
+[025.418]Read 8 bytes, command 8 and packet length 8 bytes
+[025.418]RECEIVED <-- SAHARA_RESET_RESP_ID
+[025.535]Read/Write File descriptor returned error: No such file or directory, error code 0
+[025.536]Get reset response code 8
+[025.537]Sahara protocol completed
+[025.537]Catch DUMP using Sahara protocol successful
+
+root@cqh6:~/qlog_new# du -sh dump/*
+128K	dump/CODERAM.BIN
+64K	dump/DATARAM.BIN
+256M	dump/DDRCS0.BIN
+20K	dump/MSGRAM.BIN
+16K	dump/OCIMEM.BIN
+4.0K	dump/PMIC_PON.BIN
+4.0K	dump/RST_STAT.BIN
+4.0K	dump/load.cmm
